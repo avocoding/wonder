@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Nudge - Cozy Day Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="pill">For women who want a warm, cozy day plan</p>
+          <h1>The Nudge</h1>
+          <p class="subtitle">
+            Set your radius, share your vibe, and get gentle nudges for events, cozy hangs, and
+            spontaneous ideas nearby.
+          </p>
+          <div class="hero-actions">
+            <button class="primary" type="button" id="startNow">Start your day plan</button>
+            <button class="ghost" type="button" id="seeIdeas">See example ideas</button>
+          </div>
+          <div class="stats">
+            <div>
+              <span>Radius</span>
+              <strong id="radiusValue">5 miles</strong>
+            </div>
+            <div>
+              <span>Personalized ideas</span>
+              <strong id="ideaCount">0 ready</strong>
+            </div>
+            <div>
+              <span>Vibe</span>
+              <strong>Warm & intentional</strong>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Quick vibe check</h2>
+          <p class="muted">Answer a few questions so the AI can tune your suggestions.</p>
+          <form id="quickForm">
+            <label>
+              Where are you planning today?
+              <input type="text" name="city" placeholder="Brooklyn, NY" required />
+            </label>
+            <label>
+              Radius (miles)
+              <input type="range" name="radius" min="1" max="25" value="5" />
+            </label>
+            <label>
+              Your current vibe
+              <select name="vibe">
+                <option value="cozy">Cozy & calm</option>
+                <option value="social">Social & upbeat</option>
+                <option value="creative">Creative & curious</option>
+                <option value="active">Active & outdoorsy</option>
+              </select>
+            </label>
+            <button class="primary" type="submit">Nudge me</button>
+          </form>
+        </div>
+      </header>
+
+      <main>
+        <section class="questionnaire" id="questionnaire">
+          <div>
+            <h2>Your Nudge Questionnaire</h2>
+            <p class="muted">
+              Tell us about your interests, goals, and budget. We’ll use this to personalize local
+              ideas and events.
+            </p>
+          </div>
+          <form id="nudgeForm">
+            <div class="grid">
+              <label>
+                Interests you want to explore
+                <input
+                  type="text"
+                  name="interests"
+                  placeholder="Ceramics, live jazz, book clubs"
+                  required
+                />
+              </label>
+              <label>
+                Past hobbies you loved
+                <input type="text" name="hobbies" placeholder="Yoga, baking, hiking" />
+              </label>
+              <label>
+                New hobbies you’re curious about
+                <input type="text" name="newHobbies" placeholder="Pottery, floral design" />
+              </label>
+              <label>
+                Typical budget
+                <select name="budget">
+                  <option value="free">Mostly free</option>
+                  <option value="low">$</option>
+                  <option value="mid">$$</option>
+                  <option value="high">$$$</option>
+                </select>
+              </label>
+              <label>
+                Relationship status (optional)
+                <select name="relationship">
+                  <option value="solo">Solo</option>
+                  <option value="dating">Dating</option>
+                  <option value="partnered">Partnered</option>
+                  <option value="friends">Planning with friends</option>
+                </select>
+              </label>
+              <label>
+                Day goals
+                <textarea
+                  name="goals"
+                  placeholder="Feel grounded, explore a new neighborhood, or celebrate myself"
+                  rows="3"
+                ></textarea>
+              </label>
+            </div>
+            <button class="primary" type="submit">Generate my day plan</button>
+          </form>
+        </section>
+
+        <section class="results" id="results">
+          <div class="results-header">
+            <h2>Your gentle nudges</h2>
+            <p class="muted" id="resultsSummary">
+              Share your answers and we’ll craft a blend of events, venues, and cozy ideas.
+            </p>
+          </div>
+          <div class="cards" id="recommendations"></div>
+        </section>
+
+        <section class="chat" id="chat">
+          <div>
+            <h2>Ask the Nudge Chat</h2>
+            <p class="muted">
+              Brainstorm a day plan with a warm AI companion. Ask about quick ideas, date plans, or
+              solo rituals.
+            </p>
+          </div>
+          <div class="chat-panel">
+            <div class="chat-log" id="chatLog">
+              <div class="message ai">
+                Hi love! Tell me how you want to feel today and I’ll dream up a cozy plan.
+              </div>
+            </div>
+            <form id="chatForm" class="chat-input">
+              <input
+                type="text"
+                name="message"
+                placeholder="I want a creative afternoon that feels calm and inspiring..."
+                required
+              />
+              <button class="primary" type="submit">Send</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
